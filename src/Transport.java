@@ -1,10 +1,10 @@
 
-public abstract class Transport implements Competing {
-    private String brand;
-    private String model;
-    private double engineValue;
-    private Driver driver;
-    public Transport(String brand, String model, double engineValue, Driver driver) {
+public abstract class Transport<T extends Driver> implements Competing {
+    private final String brand;
+    private final String model;
+    private final double engineValue;
+    private T driver;
+    public Transport(String brand, String model, double engineValue, T driver) {
         if (driver != null) {
             this.driver = driver;
         }
@@ -43,26 +43,15 @@ public abstract class Transport implements Competing {
         System.out.printf("Водитель %s управляет автомобилем %s и будет участвовать в заезде.\n", driver.getFullName(), brand);
     }
 
-    public void startMove() {}
+    public void startMove() {
+        System.out.println("Транспорт начинает движение.");
+    }
 
-    public void stopMove() {}
+    public void stopMove() {
+        System.out.println("Транспорт останавливается.");
+    }
 
-    public Driver getDriver() {
+    public T getDriver() {
         return driver;
-    }
-
-    @Override
-    public void pitStop() {
-        System.out.println("Пит стоп...");
-    }
-
-    @Override
-    public void bestCircleTime() {
-        System.out.println("Лучшее время круга ");
-    }
-
-    @Override
-    public void maxSpeed() {
-        System.out.println("Максимальная скорость ");
     }
 }
