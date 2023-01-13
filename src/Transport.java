@@ -54,4 +54,16 @@ public abstract class Transport<T extends Driver> implements Competing {
     public T getDriver() {
         return driver;
     }
+
+    abstract void printType();
+
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineValue=" + engineValue +
+                ", driver=" + driver +
+                '}';
+    }
 }

@@ -1,6 +1,12 @@
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(BodyType.COUPE);
+        System.out.println(LoadType.N3);
+        System.out.println(LoadType.N2);
+        System.out.println(LoadType.N1);
+        System.out.println(CapacityType.LOW);
+        System.out.println(CapacityType.BIG);
 
         DriverB sereja = new DriverB("Sergey A.V.", true, 10);
         DriverC vadim = new DriverC("Vadim A.V.", true, 10);
@@ -21,13 +27,17 @@ public class Main {
         Track man = new Track("Man", "TGS", 12.0, vadim);
         Track mercedesBenz = new Track("Mercedes Benz", "15", 12.8, vadim);
 
-        lada.showDriverInfo();
-        audi.showDriverInfo();
-
-        first.showDriverInfo();
-        fourth.showDriverInfo();
-
-        zil.showDriverInfo();
-        mercedesBenz.showDriverInfo();
+        lada.printType();
+        lada.setTransportType(BodyType.SEDAN);
+        System.out.println(lada);
+        lada.printType();
+//        lada.showDriverInfo();
+//        audi.showDriverInfo();
+//
+//        first.showDriverInfo();
+//        fourth.showDriverInfo();
+//
+//        zil.showDriverInfo();
+//        mercedesBenz.showDriverInfo();
     }
 }

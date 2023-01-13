@@ -1,7 +1,19 @@
 
 public class Track extends Transport<DriverC> {
+
+    private Enum<LoadType> transportType;
+
     public Track(String brand, String model, double engineValue, DriverC driver) {
         super(brand, model, engineValue, driver);
+    }
+
+    @Override
+    void printType() {
+        if (transportType == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(transportType);
+        }
     }
 
     @Override
@@ -17,5 +29,13 @@ public class Track extends Transport<DriverC> {
     @Override
     public void maxSpeed() {
         System.out.println("Максимальная скорость грузовика");
+    }
+
+    public Enum<LoadType> getTransportType() {
+        return transportType;
+    }
+
+    public void setTransportType(Enum<LoadType> transportType) {
+        this.transportType = transportType;
     }
 }

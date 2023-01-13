@@ -32,4 +32,13 @@ public abstract class Driver {
     public int getDrivingExperience() {
         return drivingExperience;
     }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "fullName='" + fullName + '\'' +
+                ", driverLicense=" + driverLicense +
+                ", drivingExperience=" + drivingExperience +
+                '}';
+    }
 }
