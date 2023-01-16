@@ -1,10 +1,15 @@
 
 public class Car extends Transport<DriverB> {
 
-    private Enum<BodyType> transportType;
+    private BodyType transportType;
 
     public Car(String brand, String model, double engineValue, DriverB driver) {
         super(brand, model, engineValue, driver);
+    }
+
+    @Override
+    public void getDiagnosed() {
+        System.out.printf("автомобиль %s проходит диагностику...", getBrand());
     }
 
     @Override
@@ -35,7 +40,7 @@ public class Car extends Transport<DriverB> {
         return transportType;
     }
 
-    public void setTransportType(Enum<BodyType> transportType) {
+    public void setTransportType(BodyType transportType) {
         this.transportType = transportType;
     }
 }

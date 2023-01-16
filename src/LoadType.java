@@ -3,8 +3,8 @@ public enum LoadType {
     N2(3.5f, 12.0f),
     N3(12.0f, null);
 
-    final Float low;
-    final Float high;
+    private final Float low;
+    private final Float high;
 
 
     LoadType(Float low, Float high) {

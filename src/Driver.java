@@ -2,11 +2,19 @@ public abstract class Driver {
     private final String fullName;
     private final boolean driverLicense;
     private final int drivingExperience;
+    protected LicenceType licenseType;
 
-    public Driver(String fullName, boolean driverLicense, int drivingExperience) {
+    public Driver(String fullName, boolean driverLicense, int drivingExperience, LicenceType licenseType) throws WrongLicenceTypeException {
         this.fullName = fullName;
         this.driverLicense = driverLicense;
         this.drivingExperience = drivingExperience;
+        setLicenseType(licenseType);
+    }
+
+    public abstract void setLicenseType(LicenceType licenseType) throws WrongLicenceTypeException;
+
+    public LicenceType getLicenseType() {
+        return licenseType;
     }
 
     public void startMove() {

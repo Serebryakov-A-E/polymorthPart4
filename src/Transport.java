@@ -27,6 +27,10 @@ public abstract class Transport<T extends Driver> implements Competing {
         }
     }
 
+    public void getDiagnosed() {
+
+    }
+
     public String getBrand() {
         return brand;
     }

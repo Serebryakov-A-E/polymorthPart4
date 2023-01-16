@@ -5,8 +5,8 @@ public enum CapacityType {
     BIG(60, 80),
     LARGE(100, 120);
 
-    final int low;
-    final int high;
+    private final int low;
+    private final int high;
 
 
     CapacityType(int low, int high) {

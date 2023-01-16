@@ -1,10 +1,15 @@
 
 public class Bus extends Transport<DriverD> {
 
-    private Enum<CapacityType> transportType;
+    private CapacityType transportType;
 
     public Bus(String brand, String model, double engineValue, DriverD driver) {
         super(brand, model, engineValue, driver);
+    }
+
+    @Override
+    public void getDiagnosed() {
+        throw new UnsupportedOperationException("Автобусы не могут пройти диагностику");
     }
 
     @Override
@@ -35,7 +40,7 @@ public class Bus extends Transport<DriverD> {
         return transportType;
     }
 
-    public void setTransportType(Enum<CapacityType> transportType) {
+    public void setTransportType(CapacityType transportType) {
         this.transportType = transportType;
     }
 }
