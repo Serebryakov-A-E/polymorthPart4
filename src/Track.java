@@ -1,10 +1,15 @@
 
 public class Track extends Transport<DriverC> {
 
-    private Enum<LoadType> transportType;
+    private LoadType transportType;
 
     public Track(String brand, String model, double engineValue, DriverC driver) {
         super(brand, model, engineValue, driver);
+    }
+
+    @Override
+    public void getDiagnosed() {
+        System.out.printf("грузовик %s проходит диагностику...", getBrand());
     }
 
     @Override
@@ -35,7 +40,7 @@ public class Track extends Transport<DriverC> {
         return transportType;
     }
 
-    public void setTransportType(Enum<LoadType> transportType) {
+    public void setTransportType(LoadType transportType) {
         this.transportType = transportType;
     }
 }

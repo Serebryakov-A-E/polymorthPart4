@@ -1,6 +1,7 @@
 
 public class Main {
     public static void main(String[] args) {
+        /*
         System.out.println(BodyType.COUPE);
         System.out.println(LoadType.N3);
         System.out.println(LoadType.N2);
@@ -8,9 +9,32 @@ public class Main {
         System.out.println(CapacityType.LOW);
         System.out.println(CapacityType.BIG);
 
-        DriverB sereja = new DriverB("Sergey A.V.", true, 10);
-        DriverC vadim = new DriverC("Vadim A.V.", true, 10);
-        DriverD nikita = new DriverD("Nikita A.V.", true, 10);
+         */
+
+        DriverB sereja = null;
+        DriverC vadim = null;
+        DriverD nikita = null;
+
+        try {
+            sereja = new DriverB("Sergey A.V.", true, 10, LicenceType.C);
+        } catch (WrongLicenceTypeException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            vadim = new DriverC("Vadim A.V.", true, 10, LicenceType.B);
+        } catch (WrongLicenceTypeException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            nikita = new DriverD("Nikita A.V.", true, 10, LicenceType.D);
+        } catch (WrongLicenceTypeException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(nikita.getFullName() + " имеет права категории " + nikita.getLicenseType());
+
 
         Bus first = new Bus("One", "plus", 1.8, nikita);
         Bus second = new Bus("Two", "minus", 3.0, nikita);
@@ -27,10 +51,10 @@ public class Main {
         Track man = new Track("Man", "TGS", 12.0, vadim);
         Track mercedesBenz = new Track("Mercedes Benz", "15", 12.8, vadim);
 
-        lada.printType();
-        lada.setTransportType(BodyType.SEDAN);
-        System.out.println(lada);
-        lada.printType();
+//        lada.printType();
+//        lada.setTransportType(BodyType.SEDAN);
+//        System.out.println(lada);
+//        lada.printType();
 //        lada.showDriverInfo();
 //        audi.showDriverInfo();
 //
