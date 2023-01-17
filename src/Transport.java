@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private final double engineValue;
     private T driver;
+    private List<Mechanic> mechanics = new ArrayList<>();
     public Transport(String brand, String model, double engineValue, T driver) {
         if (driver != null) {
             this.driver = driver;
@@ -25,6 +28,19 @@ public abstract class Transport<T extends Driver> implements Competing {
         } else {
             this.engineValue = 1.5;
         }
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public void addMechanics(Mechanic mechanic) {
+        mechanics.add(mechanic);
+    }
+
+    public void showMechanicsInfo() {
+        System.out.println("Список всех механиков автомобиля " + brand + ":");
+        mechanics.forEach(System.out :: println);
     }
 
     public void getDiagnosed() {

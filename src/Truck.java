@@ -1,9 +1,9 @@
 
-public class Track extends Transport<DriverC> {
+public class Truck extends Transport<DriverC> {
 
     private LoadType transportType;
 
-    public Track(String brand, String model, double engineValue, DriverC driver) {
+    public Truck(String brand, String model, double engineValue, DriverC driver) {
         super(brand, model, engineValue, driver);
     }
 
