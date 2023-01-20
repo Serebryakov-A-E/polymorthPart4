@@ -1,15 +1,12 @@
+import javax.sound.midi.Track;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        System.out.println(BodyType.COUPE);
-        System.out.println(LoadType.N3);
-        System.out.println(LoadType.N2);
-        System.out.println(LoadType.N1);
-        System.out.println(CapacityType.LOW);
-        System.out.println(CapacityType.BIG);
-
-         */
+        List<Transport> transports = new ArrayList<>();
+        List<Mechanic> mechanics = new ArrayList<>();
+        List<Driver> drivers = new ArrayList<>();
 
         DriverB sereja = null;
         DriverC vadim = null;
@@ -17,22 +14,26 @@ public class Main {
 
         try {
             sereja = new DriverB("Sergey A.V.", true, 10, LicenceType.C);
+            drivers.add(sereja);
         } catch (WrongLicenceTypeException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             vadim = new DriverC("Vadim A.V.", true, 10, LicenceType.B);
+            drivers.add(vadim);
         } catch (WrongLicenceTypeException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             nikita = new DriverD("Nikita A.V.", true, 10, LicenceType.D);
+            drivers.add(nikita);
         } catch (WrongLicenceTypeException e) {
             System.out.println(e.getMessage());
         }
 
+        assert nikita != null;
         System.out.println(nikita.getFullName() + " имеет права категории " + nikita.getLicenseType());
 
 
@@ -46,22 +47,58 @@ public class Main {
         Car bmw = new Car("BMW", "Z8", 3.0, sereja);
         Car kia = new Car("Kia", "Sportage 4", 2.4, sereja);
 
-        Track kamAz = new Track("KamAz", "222", 4.2, vadim);
-        Track zil = new Track("ZIL", "164", 5.5, vadim);
-        Track man = new Track("Man", "TGS", 12.0, vadim);
-        Track mercedesBenz = new Track("Mercedes Benz", "15", 12.8, vadim);
+        Truck kamAz = new Truck("KamAz", "222", 4.2, vadim);
+        Truck zil = new Truck("ZIL", "164", 5.5, vadim);
+        Truck man = new Truck("Man", "TGS", 12.0, vadim);
+        Truck mercedesBenz = new Truck("Mercedes Benz", "15", 12.8, vadim);
 
-//        lada.printType();
-//        lada.setTransportType(BodyType.SEDAN);
-//        System.out.println(lada);
-//        lada.printType();
-//        lada.showDriverInfo();
-//        audi.showDriverInfo();
-//
-//        first.showDriverInfo();
-//        fourth.showDriverInfo();
-//
-//        zil.showDriverInfo();
-//        mercedesBenz.showDriverInfo();
+        transports.add(first);
+        transports.add(second);
+        transports.add(third);
+        transports.add(fourth);
+
+        transports.add(lada);
+        transports.add(audi);
+        transports.add(bmw);
+        transports.add(kia);
+
+        transports.add(kamAz);
+        transports.add(zil);
+        transports.add(man);
+        transports.add(mercedesBenz);
+
+        Mechanic<Car> sergey = new Mechanic<>("Sergey", "MotorsA");
+        sergey.setTransport(lada);
+        sergey.fixCar();
+        sergey.carryOutMaintenance();
+
+        Mechanic<Truck> dima = new Mechanic<>("Dima", "Motors");
+        dima.setTransport(zil);
+        dima.fixCar();
+        dima.carryOutMaintenance();
+
+        Mechanic<Bus> volodya = new Mechanic<>("Volodya", "V-Motors");
+        volodya.setTransport(first);
+        volodya.fixCar();
+        volodya.carryOutMaintenance();
+
+        Mechanic<Transport> moguVsex = new Mechanic("Anatolyi", "AA");
+        moguVsex.setTransport(lada);
+        moguVsex.fixCar();
+        moguVsex.setTransport(zil);
+        moguVsex.carryOutMaintenance();
+
+
+        mechanics.add(sergey);
+        mechanics.add(dima);
+        mechanics.add(volodya);
+        mechanics.add(moguVsex);
+
+
+        lada.addMechanics(sergey);
+        lada.addMechanics(moguVsex);
+        lada.showMechanicsInfo();
+
+
     }
 }
