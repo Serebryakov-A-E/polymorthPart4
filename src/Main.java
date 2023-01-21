@@ -1,15 +1,15 @@
-import javax.sound.midi.Track;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
         List<Transport<?>> transports = new ArrayList<>();
         List<Driver> drivers = new ArrayList<>();
 
-        HashMap<Transport<?>, Mechanic<?>> mechanics = new HashMap<>();
-        HashMap<Transport<?>, List<Mechanic<?>>> mechanics2 = new HashMap<>();
+        Map<Transport<?>, Mechanic<?>> mechanics = new HashMap<>();
+        Map<Transport<?>, List<Mechanic<?>>> mechanics2 = new HashMap<>();
 
         DriverB sereja = null;
         DriverC vadim = null;
@@ -91,10 +91,8 @@ public class Main {
         moguVsex.setTransport(zil);
         moguVsex.carryOutMaintenance();
 
-
         mechanics.put(lada, sergey);
-        mechanics.put(lada, sergey);
-        mechanics.put(lada, sergey);
+        mechanics.put(audi, sergey);
         mechanics.put(lada, sergey);
         mechanics.put(zil, dima);
         mechanics.put(first, volodya);
