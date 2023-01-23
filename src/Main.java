@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         List<Transport<?>> transports = new ArrayList<>();
-        List<Driver> drivers = new ArrayList<>();
+        Set<Driver> drivers = new HashSet<>();
 
         Map<Transport<?>, Mechanic<?>> mechanics = new HashMap<>();
         Map<Transport<?>, List<Mechanic<?>>> mechanics2 = new HashMap<>();
@@ -16,14 +13,19 @@ public class Main {
         DriverD nikita = null;
 
         try {
-            sereja = new DriverB("Sergey A.V.", true, 10, LicenceType.C);
+            sereja = new DriverB("Sergey A.V.", true, 10, LicenceType.B);
             drivers.add(sereja);
         } catch (WrongLicenceTypeException e) {
             System.out.println(e.getMessage());
         }
 
+        //повтор
+        drivers.add(sereja);
+        drivers.add(sereja);
+        drivers.add(sereja);
+
         try {
-            vadim = new DriverC("Vadim A.V.", true, 10, LicenceType.B);
+            vadim = new DriverC("Vadim A.V.", true, 10, LicenceType.C);
             drivers.add(vadim);
         } catch (WrongLicenceTypeException e) {
             System.out.println(e.getMessage());
@@ -35,6 +37,14 @@ public class Main {
         } catch (WrongLicenceTypeException e) {
             System.out.println(e.getMessage());
         }
+
+        //вывод всех водителей
+        System.out.println("--------------------------------------------------");
+        Iterator<Driver> iterator = drivers.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        System.out.println("--------------------------------------------------");
 
         assert nikita != null;
         System.out.println(nikita.getFullName() + " имеет права категории " + nikita.getLicenseType());
